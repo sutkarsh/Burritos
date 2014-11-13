@@ -38,6 +38,9 @@ function handleText(textNode)
   		if (match.indexOf("illion") > -1){ //if it contains 'illion'
   			numerals = parseFloat(match.substring(1, (match.length - 8))); //Only take the numbers
   		}
+  		if (isNaN(numerals)) {
+  			return match;
+  		}
   		var rounded_numerals = Math.round((numerals / 6.25)*100)/100; // divide by 6.25 and round to 2 decimal places
   		var amount_str = rounded_numerals.toString();
   		if (match.indexOf("Million") > -1){amount_str = amount_str + " Million";}
